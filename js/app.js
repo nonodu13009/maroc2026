@@ -114,8 +114,8 @@ function initPrint() {
 // Audio Player
 function initPlayer() {
   const tracks = [
-    { title: 'Bahia Rai Afrobeat', file: 'musique/01-bahia-rai-afrobeat.mp3' },
     { title: 'Moroccan Travel Vlog', file: 'musique/02-moroccan-travel-vlog.mp3' },
+    { title: 'Bahia Rai Afrobeat', file: 'musique/01-bahia-rai-afrobeat.mp3' },
     { title: 'Desert Groove', file: 'musique/03-desert-groove.mp3' },
     { title: 'Moroccan Style', file: 'musique/04-moroccan-style.mp3' },
     { title: 'Medina Melodies', file: 'musique/05-medina-melodies.mp3' }

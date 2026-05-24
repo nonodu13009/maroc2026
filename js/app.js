@@ -83,6 +83,11 @@ function initScrollAnimations() {
   }, { threshold: 0.1 });
 
   elements.forEach(el => observer.observe(el));
+
+  // Fallback: reveal all after 2s in case observer doesn't fire
+  setTimeout(() => {
+    elements.forEach(el => el.classList.add('visible'));
+  }, 2000);
 }
 
 // Smooth scroll for nav links

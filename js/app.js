@@ -235,32 +235,31 @@ function initPlayer() {
   window.playerStart = startPlaying;
 }
 
-// Door splash
-function initDoor() {
-  const splash = document.getElementById('doorSplash');
-  if (!splash) return;
+// Splash screen
+function initSplash() {
+  const splash = document.getElementById('splash');
+  const cta = document.getElementById('splashCta');
+  if (!splash || !cta) return;
 
-  // Skip if already opened this session
-  if (sessionStorage.getItem('maroc2026-door-opened')) {
+  if (sessionStorage.getItem('maroc2026-entered')) {
     splash.classList.add('hidden');
     return;
   }
 
-  splash.addEventListener('click', () => {
-    splash.classList.add('opened');
-    sessionStorage.setItem('maroc2026-door-opened', 'true');
-    // Start music on door open (user click unlocks autoplay)
+  cta.addEventListener('click', () => {
+    splash.classList.add('leaving');
+    sessionStorage.setItem('maroc2026-entered', 'true');
     if (window.playerStart) window.playerStart();
     setTimeout(() => {
       splash.classList.add('hidden');
-    }, 1600);
+    }, 900);
   });
 }
 
 // Init all
 document.addEventListener('DOMContentLoaded', () => {
   initPlayer();
-  initDoor();
+  initSplash();
   updateCountdown();
   setInterval(updateCountdown, 60000);
   initDarkMode();

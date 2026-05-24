@@ -34,134 +34,137 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* DOOR SPLASH */
-.door-splash {
+/* SPLASH SCREEN */
+.splash {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  perspective: 1800px;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-.door-splash.opened { pointer-events: none; }
-
-.door-frame {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.door-left,
-.door-right {
-  width: 50%;
-  height: 100%;
-  background-image: url('../images/porte.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  box-shadow: 0 0 60px rgba(0,0,0,0.5);
-}
-
-.door-left {
-  background-position: left center;
-  transform-origin: left center;
-}
-
-.door-right {
-  background-position: right center;
-  transform-origin: right center;
-}
-
-.door-splash.opened .door-left {
-  transform: rotateY(-105deg);
-}
-
-.door-splash.opened .door-right {
-  transform: rotateY(105deg);
-}
-
-.door-overlay {
-  position: absolute;
-  inset: 0;
+  background: var(--encre);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(42, 31, 26, 0.45);
-  transition: opacity 0.6s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.door-splash.opened .door-overlay {
-  opacity: 0;
+.splash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(181, 79, 47, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(201, 135, 74, 0.08) 0%, transparent 60%);
 }
 
-.door-text {
-  text-align: center;
-  color: #fbf6ec;
-}
-
-.door-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.5em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0.8;
-}
-
-.door-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 100px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  text-shadow: 0 4px 40px rgba(0,0,0,0.5);
-  margin-bottom: 30px;
-  line-height: 1;
-}
-
-.door-cta {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 22px;
-  color: var(--ocre);
-  animation: pulse-cta 2s ease-in-out infinite;
-}
-
-@keyframes pulse-cta {
-  0%, 100% { opacity: 0.6; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(-4px); }
-}
-
-.door-splash.hidden {
-  display: none;
-}
-
-/* Door handle details */
-.door-left::after,
-.door-right::after {
+.splash::after {
   content: "";
   position: absolute;
   top: 50%;
-  width: 14px;
-  height: 40px;
-  background: radial-gradient(circle, #d4a84b 0%, #8a6d2f 100%);
-  border-radius: 7px;
-  transform: translateY(-50%);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.3);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(201, 135, 74, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-.door-left::after { right: 30px; }
-.door-right::after { left: 30px; }
+.splash.leaving {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.splash.hidden { display: none; }
+
+.splash-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  animation: splash-appear 1.2s ease forwards;
+}
+
+@keyframes splash-appear {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.splash-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: var(--ocre);
+  margin-bottom: 32px;
+}
+
+.splash-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  font-weight: 800;
+  color: #fbf6ec;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  margin-bottom: 0;
+}
+
+.splash-line {
+  width: 60px;
+  height: 2px;
+  background: var(--terracotta);
+  margin: 32px auto;
+}
+
+.splash-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.7;
+  color: rgba(245, 234, 212, 0.7);
+  max-width: 480px;
+  margin: 0 auto 44px;
+}
+
+.splash-cta {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #fbf6ec;
+  background: transparent;
+  border: 1px solid var(--terracotta);
+  padding: 16px 48px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.splash-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.splash-cta:hover {
+  color: #fbf6ec;
+  border-color: var(--terracotta);
+}
+
+.splash-cta:hover::before {
+  transform: scaleX(1);
+}
 
 @media (max-width: 480px) {
-  .door-title { font-size: 60px; }
-  .door-subtitle { font-size: 10px; letter-spacing: 0.3em; }
-  .door-cta { font-size: 18px; }
-  .door-left::after, .door-right::after { width: 10px; height: 30px; }
-  .door-left::after { right: 18px; }
-  .door-right::after { left: 18px; }
+  .splash-title { font-size: 64px; }
+  .splash-text { font-size: 17px; padding: 0 10px; }
+  .splash-eyebrow { font-size: 9px; letter-spacing: 0.4em; }
+  .splash-cta { padding: 14px 32px; font-size: 11px; }
+  .splash::after { width: 300px; height: 300px; }
 }
 
 body {

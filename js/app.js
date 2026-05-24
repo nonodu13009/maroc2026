@@ -220,8 +220,19 @@ function initPlayer() {
     });
   }
 
+  // Start playing (called externally from door open)
+  function startPlaying() {
+    audio.play();
+    playPauseBtn.innerHTML = '\u23F8';
+    isPlaying = true;
+    player.classList.remove('collapsed');
+  }
+
   // Load first track
   loadTrack(0);
+
+  // Expose for door trigger
+  window.playerStart = startPlaying;
 }
 
 // Door splash
@@ -238,6 +249,8 @@ function initDoor() {
   splash.addEventListener('click', () => {
     splash.classList.add('opened');
     sessionStorage.setItem('maroc2026-door-opened', 'true');
+    // Start music on door open (user click unlocks autoplay)
+    if (window.playerStart) window.playerStart();
     setTimeout(() => {
       splash.classList.add('hidden');
     }, 1600);
@@ -246,6 +259,7 @@ function initDoor() {
 
 // Init all
 document.addEventListener('DOMContentLoaded', () => {
+  initPlayer();
   initDoor();
   updateCountdown();
   setInterval(updateCountdown, 60000);
@@ -254,5 +268,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initSmoothScroll();
   initPrint();
-  initPlayer();
 });

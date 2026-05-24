@@ -3,405 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voyage Maroc — Tour Atlantique</title>
+<title>Voyage Maroc 2026 — Tour Atlantique</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Maroc 2026 — Tour Atlantique">
+<meta property="og:description" content="11 a 14 jours sur la cote atlantique marocaine. Sidi Ifni, Taghazout, Essaouira, Agadir.">
+<meta property="og:image" content="images/hero-maroc.jpg">
+<meta property="og:type" content="website">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127466;&#127474;</text></svg>">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --terracotta: #b54f2f;
-    --terracotta-deep: #8a3a22;
-    --ocre: #c9874a;
-    --sable: #f5ead4;
-    --sable-light: #faf5e8;
-    --bleu-majorelle: #2d4a8a;
-    --bleu-deep: #1a2f5c;
-    --vert-olive: #6b7548;
-    --encre: #2a1f1a;
-    --encre-light: #5c4a3d;
-    --or: #c9a44a;
-    --paper: #fbf6ec;
-  }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    background: var(--paper);
-    color: var(--encre);
-    line-height: 1.6;
-    background-image:
-      radial-gradient(circle at 20% 80%, rgba(181, 79, 47, 0.04) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(45, 74, 138, 0.04) 0%, transparent 50%);
-  }
-
-  .page { max-width: 980px; margin: 0 auto; padding: 0 50px 60px; }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    height: 480px;
-    overflow: hidden;
-    background:
-      linear-gradient(180deg, rgba(42, 31, 26, 0.35) 0%, rgba(42, 31, 26, 0.7) 100%),
-      url('https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=1600&q=80') center/cover;
-    margin-bottom: 0;
-  }
-  .hero-content { position: absolute; bottom: 60px; left: 0; right: 0; text-align: center; color: var(--paper); padding: 0 40px; }
-  .hero .eyebrow { color: rgba(245, 234, 212, 0.9); font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 24px; font-weight: 500; }
-  .hero .eyebrow span { margin: 0 8px; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-weight: 800; font-size: 72px; line-height: 1; letter-spacing: -0.02em; color: var(--paper); margin-bottom: 18px; text-shadow: 0 2px 30px rgba(0,0,0,0.4); }
-  .hero h1 em { font-style: italic; font-weight: 400; color: var(--ocre); }
-  .hero .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 24px; color: rgba(245, 234, 212, 0.95); font-weight: 300; }
-
-  .meta-bar {
-    display: flex; justify-content: center; gap: 50px;
-    padding: 30px; background: var(--sable-light);
-    border-top: 2px solid var(--terracotta); border-bottom: 2px solid var(--terracotta);
-    flex-wrap: wrap; margin-bottom: 60px;
-  }
-  .meta-item { text-align: center; }
-  .meta-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.3em; color: var(--terracotta); text-transform: uppercase; margin-bottom: 6px; font-weight: 500; }
-  .meta-value { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--encre); font-weight: 600; }
-
-  .section { margin-bottom: 80px; }
-  .section-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 14px; color: var(--terracotta); letter-spacing: 0.1em; margin-bottom: 8px; }
-  h2 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 600; color: var(--encre); margin-bottom: 32px; position: relative; padding-bottom: 16px; }
-  h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 60px; height: 2px; background: var(--terracotta); }
-
-  /* VOYAGEURS */
-  .travelers { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; background: var(--sable-light); padding: 40px; border: 1px solid rgba(181, 79, 47, 0.15); }
-  .traveler-group { text-align: center; }
-  .traveler-group:first-child { border-right: 1px dotted var(--encre-light); padding-right: 30px; }
-  .group-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.3em; color: var(--terracotta); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-  .group-names { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--encre); line-height: 1.4; margin-bottom: 14px; font-weight: 500; }
-  .group-return { font-style: italic; font-size: 16px; color: var(--encre-light); }
-
-  /* MAPS */
-  .global-map { width: 100%; height: 450px; border: none; border-radius: 4px; box-shadow: 0 4px 30px rgba(42, 31, 26, 0.15); margin-bottom: 20px; }
-  .map-caption { font-style: italic; color: var(--encre-light); text-align: center; font-size: 15px; }
-  .mini-map { width: 100%; height: 250px; border: none; border-radius: 4px; box-shadow: 0 2px 12px rgba(42, 31, 26, 0.1); }
-  .map-link { display: inline-block; margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta); padding-bottom: 2px; }
-  .map-link::after { content: " →"; }
-
-  /* TABLE */
-  .itinerary { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  .itinerary th { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta); font-weight: 500; padding: 14px 18px; text-align: left; border-bottom: 2px solid var(--terracotta); }
-  .itinerary td { padding: 22px 18px; border-bottom: 1px dotted var(--encre-light); font-size: 17px; vertical-align: middle; }
-  .itinerary tr:last-child td { border-bottom: none; }
-  .itinerary .step-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 26px; color: var(--terracotta); width: 60px; }
-  .itinerary .step-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--encre); }
-  .itinerary .step-tagline { display: block; font-style: italic; color: var(--encre-light); font-size: 14px; margin-top: 2px; }
-
-  /* ETAPE */
-  .etape { margin-bottom: 80px; background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 4px 30px rgba(42, 31, 26, 0.08); border: 1px solid rgba(181, 79, 47, 0.1); }
-  .etape-cover { position: relative; height: 280px; overflow: hidden; }
-  .etape-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-  .etape:hover .etape-cover img { transform: scale(1.03); }
-  .etape-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(42, 31, 26, 0.65) 100%); }
-  .etape-cover-text { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 40px; color: var(--paper); z-index: 2; }
-  .etape-numeral { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--ocre); letter-spacing: 0.1em; margin-bottom: 6px; }
-  .etape-name { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; line-height: 1; margin-bottom: 6px; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
-  .etape-tagline { font-style: italic; color: var(--ocre); font-size: 19px; }
-  .etape-body { padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .etape-dates { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--encre-light); text-transform: uppercase; margin-bottom: 18px; }
-
-  /* LODGING */
-  .lodging-choice { background: var(--sable-light); border-left: 3px solid var(--vert-olive); padding: 22px 26px; margin-bottom: 24px; }
-  .lodging-label { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.25em; color: var(--vert-olive); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; }
-  .lodging-label::before { content: "✓ "; color: var(--vert-olive); }
-  .lodging-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--encre); margin-bottom: 8px; }
-  .lodging-name a { color: var(--encre); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-  .lodging-name a:hover { border-bottom-color: var(--terracotta); }
-  .lodging-desc { font-size: 16px; color: var(--encre-light); line-height: 1.5; }
-  .lodging-meta { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--encre-light); margin-top: 10px; }
-  .lodging-meta a { color: var(--terracotta); text-decoration: none; border-bottom: 1px dotted var(--terracotta); }
-
-  .lodging-options { background: var(--paper); border-left: 3px solid var(--ocre); padding: 22px 26px; margin-bottom: 24px; }
-  .lodging-options .lodging-label { color: var(--ocre); }
-  .lodging-options .lodging-label::before { content: "⊕ "; }
-  .option-list { list-style: none; margin-top: 12px; }
-  .option-list li { padding: 12px 0; border-bottom: 1px dotted var(--encre-light); }
-  .option-list li:last-child { border-bottom: none; }
-  .option-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--encre); }
-  .option-name a { color: var(--encre); text-decoration: none; border-bottom: 1px solid transparent; }
-  .option-name a:hover { border-bottom-color: var(--ocre); }
-  .option-desc { display: block; font-style: italic; color: var(--encre-light); font-size: 14px; margin-top: 2px; }
-
-  /* ACTIVITES */
-  .activities-title { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 0.3em; color: var(--terracotta); text-transform: uppercase; margin: 0 0 14px; font-weight: 600; }
-  .activities { list-style: none; }
-  .activities li { padding: 8px 0 8px 24px; position: relative; color: var(--encre); font-size: 16px; line-height: 1.5; }
-  .activities li::before { content: "✦"; position: absolute; left: 0; color: var(--terracotta); font-size: 11px; top: 12px; }
-  .activities li.highlight { font-weight: 500; }
-  .activities li.highlight::before { content: "★"; color: var(--or); font-size: 13px; }
-  .activities a { color: var(--bleu-majorelle); text-decoration: none; border-bottom: 1px dotted var(--bleu-majorelle); transition: all 0.2s; }
-  .activities a:hover { color: var(--terracotta); border-bottom-color: var(--terracotta); }
-
-  /* TODO */
-  .todo { background: linear-gradient(135deg, var(--sable-light) 0%, var(--paper) 100%); padding: 40px; border: 1px solid rgba(181, 79, 47, 0.2); margin-top: 40px; }
-  .todo-list { list-style: none; counter-reset: todo; }
-  .todo-list li { counter-increment: todo; padding: 14px 0 14px 50px; border-bottom: 1px dotted var(--encre-light); position: relative; font-size: 17px; }
-  .todo-list li:last-child { border-bottom: none; }
-  .todo-list li::before { content: counter(todo, upper-roman) "."; position: absolute; left: 0; font-family: 'Playfair Display', serif; font-style: italic; color: var(--terracotta); font-size: 18px; font-weight: 500; }
-
-  /* FOOTER */
-  .footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--terracotta); text-align: center; color: var(--encre-light); font-style: italic; font-size: 15px; }
-  .footer-ornament { color: var(--terracotta); margin: 0 12px; }
-
-  /* RESPONSIVE */
-  @media (max-width: 800px) {
-    .page { padding: 0 20px 30px; }
-    .hero { height: 380px; }
-    .hero h1 { font-size: 42px; }
-    .hero .subtitle { font-size: 18px; }
-    h2 { font-size: 30px; }
-    .meta-bar { gap: 24px; padding: 24px; }
-    .travelers { grid-template-columns: 1fr; padding: 28px; }
-    .traveler-group:first-child { border-right: none; border-bottom: 1px dotted var(--encre-light); padding-right: 0; padding-bottom: 24px; }
-    .etape-body { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
-    .etape-cover { height: 220px; }
-    .etape-name { font-size: 32px; }
-    .global-map { height: 350px; }
-    .itinerary th, .itinerary td { padding: 12px 8px; font-size: 14px; }
-    .itinerary .step-num { font-size: 20px; width: 40px; }
-    .itinerary .step-name { font-size: 17px; }
-  }
-
-  /* PRINT */
-  @media print {
-    body { background: white; }
-    .page { padding: 20px; max-width: 100%; }
-    .etape, .section { page-break-inside: avoid; }
-    .global-map, .mini-map { display: none; }
-  }
-</style>
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- NAV STICKY -->
+  <nav class="nav">
+    <ul class="nav-links">
+      <li><a href="#voyageurs">Voyageurs</a></li>
+      <li><a href="#itineraire">Itineraire</a></li>
+      <li><a href="#etapes">Etapes</a></li>
+      <li><a href="#budget">Budget</a></li>
+      <li><a href="#infos">Infos</a></li>
+      <li><a href="#checklist">Checklist</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button class="btn-icon" id="darkModeToggle" title="Mode sombre">&#9789;</button>
+      <button class="btn-icon" id="printBtn" title="Imprimer / PDF">&#9113;</button>
+    </div>
+  </nav>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-bar" id="countdown">Chargement...</div>
+
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-content">
-      <div class="eyebrow"><span>Toussaint</span>✦<span>MMXXVI</span>✦<span>Six Voyageurs</span></div>
+      <div class="eyebrow"><span>Toussaint</span> &#10022; <span>MMXXVI</span> &#10022; <span>Six Voyageurs</span></div>
       <h1>Maroc — <em>Tour Atlantique</em></h1>
       <p class="subtitle">Du sud sauvage aux remparts d'Essaouira</p>
     </div>
   </header>
 
+  <!-- META -->
   <div class="meta-bar">
-    <div class="meta-item"><div class="meta-label">Départ</div><div class="meta-value">31 octobre</div></div>
-    <div class="meta-item"><div class="meta-label">Itinéraire</div><div class="meta-value">~715 km</div></div>
-    <div class="meta-item"><div class="meta-label">Durée</div><div class="meta-value">11 à 14 jours</div></div>
-    <div class="meta-item"><div class="meta-label">Voie</div><div class="meta-value">Marseille ↔ Agadir</div></div>
+    <div class="meta-item"><div class="meta-label">Depart</div><div class="meta-value">31 octobre</div></div>
+    <div class="meta-item"><div class="meta-label">Itineraire</div><div class="meta-value">~715 km</div></div>
+    <div class="meta-item"><div class="meta-label">Duree</div><div class="meta-value">11 a 14 jours</div></div>
+    <div class="meta-item"><div class="meta-label">Voie</div><div class="meta-value">Marseille &#8596; Agadir</div></div>
   </div>
 
-<div class="page">
+  <div class="page">
 
-  <section class="section">
-    <div class="section-num">— I —</div>
-    <h2>Les voyageurs</h2>
-    <div class="travelers">
-      <div class="traveler-group">
-        <div class="group-label">Groupe 1 — Quatre</div>
-        <div class="group-names">Sandrine · Malik<br>Philippe · Florence</div>
-        <div class="group-return">Retour <em>mercredi 11 novembre</em></div>
-      </div>
-      <div class="traveler-group">
-        <div class="group-label">Groupe 2 — Deux</div>
-        <div class="group-names">Muriel<br>Jean-Michel</div>
-        <div class="group-return">Retour <em>samedi 14 novembre</em></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-num">— II —</div>
-    <h2>L'itinéraire</h2>
-
-    <iframe class="global-map" src="https://maps.google.com/maps?q=Agadir+Sidi+Ifni+Taghazout+Essaouira+Morocco&t=&z=8&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-    <p class="map-caption">Boucle côtière de ~715 km, du sud sauvage aux remparts d'Essaouira</p>
-
-    <table class="itinerary" style="margin-top: 40px;">
-      <thead>
-        <tr><th>—</th><th>Étape</th><th>Nuits</th><th>Dates</th><th>Route</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="step-num">I</td><td><span class="step-name">Sidi Ifni</span><span class="step-tagline">le sud sauvage</span></td><td>2</td><td>31/10 → 02/11</td><td>Agadir → 165 km</td></tr>
-        <tr><td class="step-num">II</td><td><span class="step-name">Taghazout</span><span class="step-tagline">surf & farniente</span></td><td>2</td><td>02/11 → 04/11</td><td>200 km via Legzira</td></tr>
-        <tr><td class="step-num">III</td><td><span class="step-name">Essaouira</span><span class="step-tagline">la perle blanche et bleue</span></td><td>2</td><td>04/11 → 06/11</td><td>175 km côte</td></tr>
-        <tr><td class="step-num">IV</td><td><span class="step-name">Agadir</span><span class="step-tagline">détente & retour</span></td><td>5 + 3</td><td>06/11 → 11 ou 14/11</td><td>175 km</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="section">
-    <div class="section-num">— III —</div>
-    <h2>Les quatre étapes</h2>
-
-    <div class="etape">
-      <div class="etape-cover">
-        <img src="https://images.unsplash.com/photo-1568849676085-51415703900f?w=1200&q=80" alt="Côte Sidi Ifni" onerror="this.src='https://images.unsplash.com/photo-1489493585363-d69421e0edd3?w=1200&q=80'">
-        <div class="etape-cover-text">
-          <div class="etape-numeral">Étape I</div>
-          <div class="etape-name">Sidi Ifni</div>
-          <div class="etape-tagline">l'inattendu</div>
+    <!-- VOYAGEURS -->
+    <section class="section fade-in" id="voyageurs">
+      <div class="section-num">— I —</div>
+      <h2>Les voyageurs</h2>
+      <div class="travelers">
+        <div class="traveler-group">
+          <div class="group-label">Groupe 1 — Quatre</div>
+          <div class="group-names">Sandrine &middot; Malik<br>Philippe &middot; Florence</div>
+          <div class="group-return">Retour <em>mercredi 11 novembre</em></div>
+        </div>
+        <div class="traveler-group">
+          <div class="group-label">Groupe 2 — Deux</div>
+          <div class="group-names">Muriel<br>Jean-Michel</div>
+          <div class="group-return">Retour <em>samedi 14 novembre</em></div>
         </div>
       </div>
-      <div class="etape-body">
-        <div>
-          <div class="etape-dates">31 octobre → 02 novembre · 2 nuits</div>
-          <div class="lodging-choice">
-            <div class="lodging-label">Hébergement choisi</div>
-            <div class="lodging-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJedavCFrrtA0RU4YyAbhRa2s" target="_blank" rel="noopener">Logis La Marine</a></div>
-            <div class="lodging-desc">Boutique-hôtel art déco face océan. Jardin avec tortues, petit-déjeuner maison, chambres vue mer. ⭐ 4,7/5 — 88 avis.</div>
-            <div class="lodging-meta"><a href="tel:+212641766096">+212 6 41 76 60 96</a> · <a href="http://logislamarine.com/" target="_blank" rel="noopener">logislamarine.com</a> · réserver vite</div>
+    </section>
+
+    <!-- ITINERAIRE -->
+    <section class="section fade-in" id="itineraire">
+      <div class="section-num">— II —</div>
+      <h2>L'itineraire</h2>
+
+      <iframe class="global-map" src="https://maps.google.com/maps?q=Agadir+Sidi+Ifni+Taghazout+Essaouira+Morocco&t=&z=8&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      <p class="map-caption">Boucle cotiere de ~715 km, du sud sauvage aux remparts d'Essaouira</p>
+
+      <!-- Desktop table -->
+      <table class="itinerary" style="margin-top: 40px;">
+        <thead>
+          <tr><th>—</th><th>Etape</th><th>Nuits</th><th>Dates</th><th>Route</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="step-num">I</td><td><span class="step-name">Sidi Ifni</span><span class="step-tagline">le sud sauvage</span></td><td>2</td><td>31/10 &rarr; 02/11</td><td>Agadir &rarr; 165 km</td></tr>
+          <tr><td class="step-num">II</td><td><span class="step-name">Taghazout</span><span class="step-tagline">surf &amp; farniente</span></td><td>2</td><td>02/11 &rarr; 04/11</td><td>200 km via Legzira</td></tr>
+          <tr><td class="step-num">III</td><td><span class="step-name">Essaouira</span><span class="step-tagline">la perle blanche et bleue</span></td><td>2</td><td>04/11 &rarr; 06/11</td><td>175 km cote</td></tr>
+          <tr><td class="step-num">IV</td><td><span class="step-name">Agadir</span><span class="step-tagline">detente &amp; retour</span></td><td>5 + 3</td><td>06/11 &rarr; 11 ou 14/11</td><td>175 km</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Mobile cards -->
+      <div class="itinerary-cards" style="margin-top: 40px;">
+        <div class="itinerary-card">
+          <span class="step-num">I</span>
+          <span class="step-name">Sidi Ifni</span>
+          <span class="step-tagline">le sud sauvage</span>
+          <div class="card-details"><span>2 nuits</span><span>31/10 &rarr; 02/11</span><span>165 km</span></div>
+        </div>
+        <div class="itinerary-card">
+          <span class="step-num">II</span>
+          <span class="step-name">Taghazout</span>
+          <span class="step-tagline">surf &amp; farniente</span>
+          <div class="card-details"><span>2 nuits</span><span>02/11 &rarr; 04/11</span><span>200 km</span></div>
+        </div>
+        <div class="itinerary-card">
+          <span class="step-num">III</span>
+          <span class="step-name">Essaouira</span>
+          <span class="step-tagline">la perle blanche et bleue</span>
+          <div class="card-details"><span>2 nuits</span><span>04/11 &rarr; 06/11</span><span>175 km</span></div>
+        </div>
+        <div class="itinerary-card">
+          <span class="step-num">IV</span>
+          <span class="step-name">Agadir</span>
+          <span class="step-tagline">detente &amp; retour</span>
+          <div class="card-details"><span>5+3 nuits</span><span>06/11 &rarr; 14/11</span><span>175 km</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ETAPES -->
+    <section class="section" id="etapes">
+      <div class="section-num">— III —</div>
+      <h2>Les quatre etapes</h2>
+
+      <!-- SIDI IFNI -->
+      <div class="etape">
+        <div class="etape-cover">
+          <img src="images/sidi-ifni.jpg" alt="Cote Sidi Ifni">
+          <div class="etape-cover-text">
+            <div class="etape-numeral">Etape I</div>
+            <div class="etape-name">Sidi Ifni</div>
+            <div class="etape-tagline">l'inattendu</div>
           </div>
-          <div class="activities-title">À ne pas manquer</div>
-          <ul class="activities">
-            <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJhx5RCfeStA0Rv4wFfLNqwZg" target="_blank" rel="noopener">Plage de Legzira</a> — falaises ocre, arches naturelles</li>
-            <li>Architecture art déco bleu & blanc (ex-enclave espagnole)</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJM46BFXePtA0RMM1lH_AoIXg" target="_blank" rel="noopener">Mirleft</a> — village hippie/surf, criques sauvages</li>
-            <li>Sortie pêche depuis le port avec un local</li>
-            <li>Souk hebdomadaire du dimanche</li>
-            <li>Poisson grillé en terrasse face océan</li>
-          </ul>
         </div>
-        <div>
-          <iframe class="mini-map" src="https://maps.google.com/maps?q=Logis+La+Marine+Sidi+Ifni&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Legzira+Beach+Morocco&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <a class="map-link" href="https://www.google.com/maps/search/Sidi+Ifni+Morocco" target="_blank" rel="noopener">Voir Sidi Ifni sur Google Maps</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="etape">
-      <div class="etape-cover">
-        <img src="https://images.unsplash.com/photo-1605552447434-1cdc5cdba929?w=1200&q=80" alt="Taghazout surf" onerror="this.src='https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=1200&q=80'">
-        <div class="etape-cover-text">
-          <div class="etape-numeral">Étape II</div>
-          <div class="etape-name">Taghazout</div>
-          <div class="etape-tagline">chill & surf</div>
-        </div>
-      </div>
-      <div class="etape-body">
-        <div>
-          <div class="etape-dates">02 → 04 novembre · 2 nuits</div>
-          <div class="lodging-options">
-            <div class="lodging-label">Trois options en lice</div>
-            <ul class="option-list">
-              <li><span class="option-name"><a href="https://www.booking.com/searchresults.fr.html?ss=Ocean%27s+Whisper+3+Bedroom+Taghazout+Bay+Tamourit" target="_blank" rel="noopener">Ocean's Whisper 3BR — Tamourit</a></span><span class="option-desc">Résidence avec piscine + parking, 3 chambres confirmées. Calme, confort.</span></li>
-              <li><span class="option-name"><a href="https://www.booking.com/searchresults.fr.html?ss=Bouad+Luxury+Apartment+Taghazout" target="_blank" rel="noopener">Bouad Luxury Apartment</a></span><span class="option-desc">Baies vitrées sol-plafond, cœur de village. Vibe surf authentique.</span></li>
-              <li><span class="option-name"><a href="https://surfberbere.com/taghazout_apartments/taghazout-3-bedroom-apartments/" target="_blank" rel="noopener">Killers Apartments</a></span><span class="option-desc">Vue plongeante sur les spots mythiques. Atmosphère surf-trip.</span></li>
+        <div class="etape-body">
+          <div>
+            <div class="etape-dates">31 octobre &rarr; 02 novembre &middot; 2 nuits</div>
+            <div class="lodging-choice">
+              <div class="lodging-label">Hebergement choisi</div>
+              <div class="lodging-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJedavCFrrtA0RU4YyAbhRa2s" target="_blank" rel="noopener">Logis La Marine</a></div>
+              <div class="lodging-desc">Boutique-hotel art deco face ocean. Jardin avec tortues, petit-dejeuner maison, chambres vue mer. 4,7/5 — 88 avis.</div>
+              <div class="lodging-meta"><a href="tel:+212641766096">+212 6 41 76 60 96</a> &middot; <a href="http://logislamarine.com/" target="_blank" rel="noopener">logislamarine.com</a> &middot; reserver vite</div>
+            </div>
+            <div class="activities-title">A ne pas manquer</div>
+            <ul class="activities">
+              <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJhx5RCfeStA0Rv4wFfLNqwZg" target="_blank" rel="noopener">Plage de Legzira</a> — falaises ocre, arches naturelles</li>
+              <li>Architecture art deco bleu &amp; blanc (ex-enclave espagnole)</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJM46BFXePtA0RMM1lH_AoIXg" target="_blank" rel="noopener">Mirleft</a> — village hippie/surf, criques sauvages</li>
+              <li>Sortie peche depuis le port avec un local</li>
+              <li>Souk hebdomadaire du dimanche</li>
+              <li>Poisson grille en terrasse face ocean</li>
             </ul>
           </div>
-          <div class="activities-title">À ne pas manquer</div>
-          <ul class="activities">
-            <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJodANCAXHsw0RCC66PLRwM-w" target="_blank" rel="noopener">Paradise Valley</a> — canyon, piscines naturelles dans les palmiers</li>
-            <li>Cours de surf collectif débutants (~250 dh / pers la demi-journée)</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJG8XgWqZSsg0R4FOAro5cR80" target="_blank" rel="noopener">Anchor Point</a> — spot mythique du surf marocain</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJQ104QRdfsg0RmCKuDL9QTIY" target="_blank" rel="noopener">Imsouane</a> — plus longue droite d'Afrique, sardines au port</li>
-            <li>Yoga, hammam, couchers de soleil au World of Waves</li>
-          </ul>
-        </div>
-        <div>
-          <iframe class="mini-map" src="https://maps.google.com/maps?q=Taghazout+Morocco&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Paradise+Valley+Agadir&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <a class="map-link" href="https://www.google.com/maps/search/Taghazout+Morocco" target="_blank" rel="noopener">Voir Taghazout sur Google Maps</a>
+          <div>
+            <iframe class="mini-map" src="https://maps.google.com/maps?q=Logis+La+Marine+Sidi+Ifni&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Legzira+Beach+Morocco&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <a class="map-link" href="https://www.google.com/maps/search/Sidi+Ifni+Morocco" target="_blank" rel="noopener">Voir Sidi Ifni sur Google Maps</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="etape">
-      <div class="etape-cover">
-        <img src="https://images.unsplash.com/photo-1597212720128-ee942af2d8f6?w=1200&q=80" alt="Essaouira" onerror="this.src='https://images.unsplash.com/photo-1553244680-1d3a8c1f5e91?w=1200&q=80'">
-        <div class="etape-cover-text">
-          <div class="etape-numeral">Étape III</div>
-          <div class="etape-name">Essaouira</div>
-          <div class="etape-tagline">carte postale</div>
+      <!-- TAGHAZOUT -->
+      <div class="etape">
+        <div class="etape-cover">
+          <img src="images/taghazout.jpg" alt="Taghazout surf">
+          <div class="etape-cover-text">
+            <div class="etape-numeral">Etape II</div>
+            <div class="etape-name">Taghazout</div>
+            <div class="etape-tagline">chill &amp; surf</div>
+          </div>
         </div>
-      </div>
-      <div class="etape-body">
-        <div>
-          <div class="etape-dates">04 → 06 novembre · 2 nuits</div>
-          <div class="lodging-options">
-            <div class="lodging-label">Trois options en lice</div>
-            <ul class="option-list">
-              <li><span class="option-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJi97UDgCbrQ0RknFY5EukQcc" target="_blank" rel="noopener">Cap Atlantique — ⭐ 5/5</a></span><span class="option-desc">Deux terrasses + baies sol-plafond, médina. Médina + océan, le combo parfait.</span></li>
-              <li><span class="option-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ-VO4ss2brQ0REWKchbCcCrc" target="_blank" rel="noopener">Jack's Apartments — ⭐ 4,5/5</a></span><span class="option-desc">Toit-terrasse, petits-déj inclus, sur les remparts. Le plus éprouvé (236 avis).</span></li>
-              <li><span class="option-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJJV3cXM2brQ0RL7RJ-B4TV7M" target="_blank" rel="noopener">Home with a Sea View — ⭐ 4,6/5</a></span><span class="option-desc">Terrasse vue mer, déco soignée. Intimiste, vibe maison d'hôtes.</span></li>
+        <div class="etape-body">
+          <div>
+            <div class="etape-dates">02 &rarr; 04 novembre &middot; 2 nuits</div>
+            <div class="lodging-options">
+              <div class="lodging-label">Trois options en lice</div>
+              <ul class="option-list">
+                <li><span class="option-name"><a href="https://www.booking.com/searchresults.fr.html?ss=Ocean%27s+Whisper+3+Bedroom+Taghazout+Bay+Tamourit" target="_blank" rel="noopener">Ocean's Whisper 3BR — Tamourit</a></span><span class="option-desc">Residence avec piscine + parking, 3 chambres confirmees. Calme, confort.</span></li>
+                <li><span class="option-name"><a href="https://www.booking.com/searchresults.fr.html?ss=Bouad+Luxury+Apartment+Taghazout" target="_blank" rel="noopener">Bouad Luxury Apartment</a></span><span class="option-desc">Baies vitrees sol-plafond, coeur de village. Vibe surf authentique.</span></li>
+                <li><span class="option-name"><a href="https://surfberbere.com/taghazout_apartments/taghazout-3-bedroom-apartments/" target="_blank" rel="noopener">Killers Apartments</a></span><span class="option-desc">Vue plongeante sur les spots mythiques. Atmosphere surf-trip.</span></li>
+              </ul>
+            </div>
+            <div class="activities-title">A ne pas manquer</div>
+            <ul class="activities">
+              <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJodANCAXHsw0RCC66PLRwM-w" target="_blank" rel="noopener">Paradise Valley</a> — canyon, piscines naturelles dans les palmiers</li>
+              <li>Cours de surf collectif debutants (~250 dh / pers la demi-journee)</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJG8XgWqZSsg0R4FOAro5cR80" target="_blank" rel="noopener">Anchor Point</a> — spot mythique du surf marocain</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJQ104QRdfsg0RmCKuDL9QTIY" target="_blank" rel="noopener">Imsouane</a> — plus longue droite d'Afrique, sardines au port</li>
+              <li>Yoga, hammam, couchers de soleil au World of Waves</li>
             </ul>
           </div>
-          <div class="activities-title">À ne pas manquer</div>
-          <ul class="activities">
-            <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ82PFQ0-brQ0RDZiJrIDu1gE" target="_blank" rel="noopener">Skala de la Ville</a> — remparts, canons, sunset (Game of Thrones)</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJEQe9ss6brQ0RHnSylpXRK3E" target="_blank" rel="noopener">Port bleu</a> — poisson grillé sur les étals</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJgSwo0vObrQ0Rm9TUCLyvdKI" target="_blank" rel="noopener">Lou's Rides</a> — excursion 3 vallées en e-bike (⭐ 4,9)</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJzdegEA2FrQ0R7_ju1fpFoCg" target="_blank" rel="noopener">Plage Sidi Kaouki</a> — balade à cheval ou chameau</li>
-            <li>Cours de cuisine marocaine chez l'habitant</li>
-            <li>Musique gnaoua en soirée</li>
-          </ul>
-        </div>
-        <div>
-          <iframe class="mini-map" src="https://maps.google.com/maps?q=Essaouira+Medina&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Skala+de+la+Ville+Essaouira&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <a class="map-link" href="https://www.google.com/maps/search/Essaouira+Morocco" target="_blank" rel="noopener">Voir Essaouira sur Google Maps</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="etape">
-      <div class="etape-cover">
-        <img src="https://images.unsplash.com/photo-1531761535209-180857e963b9?w=1200&q=80" alt="Plage Agadir" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80'">
-        <div class="etape-cover-text">
-          <div class="etape-numeral">Étape IV</div>
-          <div class="etape-name">Agadir</div>
-          <div class="etape-tagline">retour & détente</div>
-        </div>
-      </div>
-      <div class="etape-body">
-        <div>
-          <div class="etape-dates">06 → 11 ou 14 novembre · 5 + 3 nuits</div>
-          <div class="lodging-choice">
-            <div class="lodging-label">Hébergement choisi</div>
-            <div class="lodging-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJzdLfpgK3sw0R4gUV3rrBSU0" target="_blank" rel="noopener">Amadil Ocean Club</a></div>
-            <div class="lodging-desc">Connu et apprécié. Pieds dans le sable, grandes terrasses vue mer, all-inclusive, animation soir, bar de plage. ⭐ 4,4/5 — 8 206 avis.</div>
-            <div class="lodging-meta"><a href="tel:+212529080116">+212 5 29 08 01 16</a> · demander balcon vue mer + extension JM/Muriel</div>
+          <div>
+            <iframe class="mini-map" src="https://maps.google.com/maps?q=Taghazout+Morocco&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Paradise+Valley+Agadir&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <a class="map-link" href="https://www.google.com/maps/search/Taghazout+Morocco" target="_blank" rel="noopener">Voir Taghazout sur Google Maps</a>
           </div>
-          <div class="activities-title">À ne pas manquer</div>
-          <ul class="activities">
-            <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJG7yYv1G2sw0RoyDjhO6dZNg" target="_blank" rel="noopener">Souk El Had</a> — plus grand souk d'Afrique du Nord (fermé lundi)</li>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJQztGeLe2sw0RKgcqGKGG9g4" target="_blank" rel="noopener">Kasbah Oufella</a> en téléphérique — vue sur la baie</li>
-            <li>Marina + corniche, restaurants en bord de mer</li>
-            <li>Détente all-inclusive + plage</li>
-            <li>Pour Muriel & JM : journée Marrakech (3h) ou Taroudant (1h)</li>
-          </ul>
-        </div>
-        <div>
-          <iframe class="mini-map" src="https://maps.google.com/maps?q=Amadil+Ocean+Club+Agadir&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Souk+El+Had+Agadir&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
-          <a class="map-link" href="https://www.google.com/maps/search/Agadir+Morocco" target="_blank" rel="noopener">Voir Agadir sur Google Maps</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section todo">
-    <div class="section-num">— IV —</div>
-    <h2>Reste à arbitrer</h2>
-    <ol class="todo-list">
-      <li>Choix de l'hébergement à Taghazout — parmi les 3 options en lice</li>
-      <li>Choix de l'hébergement à Essaouira — parmi les 3 options en lice</li>
-      <li>Transport sur place — minibus avec chauffeur, deux locations, ou grand SUV à se relayer ?</li>
-      <li>Billets d'avion — réservation Ryanair à finaliser (vols disponibles mer/jeu/sam/dim)</li>
-      <li>Récap à diffuser au groupe — par mail, Slack ou PDF imprimé ?</li>
-    </ol>
-  </section>
+      <!-- ESSAOUIRA -->
+      <div class="etape">
+        <div class="etape-cover">
+          <img src="images/essaouira.jpg" alt="Essaouira">
+          <div class="etape-cover-text">
+            <div class="etape-numeral">Etape III</div>
+            <div class="etape-name">Essaouira</div>
+            <div class="etape-tagline">carte postale</div>
+          </div>
+        </div>
+        <div class="etape-body">
+          <div>
+            <div class="etape-dates">04 &rarr; 06 novembre &middot; 2 nuits</div>
+            <div class="lodging-options">
+              <div class="lodging-label">Trois options en lice</div>
+              <ul class="option-list">
+                <li><span class="option-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJi97UDgCbrQ0RknFY5EukQcc" target="_blank" rel="noopener">Cap Atlantique — 5/5</a></span><span class="option-desc">Deux terrasses + baies sol-plafond, medina. Ocean, le combo parfait.</span></li>
+                <li><span class="option-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ-VO4ss2brQ0REWKchbCcCrc" target="_blank" rel="noopener">Jack's Apartments — 4,5/5</a></span><span class="option-desc">Toit-terrasse, petits-dej inclus, sur les remparts. Le plus eprouve (236 avis).</span></li>
+                <li><span class="option-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJJV3cXM2brQ0RL7RJ-B4TV7M" target="_blank" rel="noopener">Home with a Sea View — 4,6/5</a></span><span class="option-desc">Terrasse vue mer, deco soignee. Intimiste, vibe maison d'hotes.</span></li>
+              </ul>
+            </div>
+            <div class="activities-title">A ne pas manquer</div>
+            <ul class="activities">
+              <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJ82PFQ0-brQ0RDZiJrIDu1gE" target="_blank" rel="noopener">Skala de la Ville</a> — remparts, canons, sunset (Game of Thrones)</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJEQe9ss6brQ0RHnSylpXRK3E" target="_blank" rel="noopener">Port bleu</a> — poisson grille sur les etals</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJgSwo0vObrQ0Rm9TUCLyvdKI" target="_blank" rel="noopener">Lou's Rides</a> — excursion 3 vallees en e-bike (4,9)</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJzdegEA2FrQ0R7_ju1fpFoCg" target="_blank" rel="noopener">Plage Sidi Kaouki</a> — balade a cheval ou chameau</li>
+              <li>Cours de cuisine marocaine chez l'habitant</li>
+              <li>Musique gnaoua en soiree</li>
+            </ul>
+          </div>
+          <div>
+            <iframe class="mini-map" src="https://maps.google.com/maps?q=Essaouira+Medina&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Skala+de+la+Ville+Essaouira&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <a class="map-link" href="https://www.google.com/maps/search/Essaouira+Morocco" target="_blank" rel="noopener">Voir Essaouira sur Google Maps</a>
+          </div>
+        </div>
+      </div>
 
-  <footer class="footer">
-    <span class="footer-ornament">✦</span>
-    Bismillah, bon voyage
-    <span class="footer-ornament">✦</span>
-  </footer>
+      <!-- AGADIR -->
+      <div class="etape">
+        <div class="etape-cover">
+          <img src="images/agadir.jpg" alt="Plage Agadir">
+          <div class="etape-cover-text">
+            <div class="etape-numeral">Etape IV</div>
+            <div class="etape-name">Agadir</div>
+            <div class="etape-tagline">retour &amp; detente</div>
+          </div>
+        </div>
+        <div class="etape-body">
+          <div>
+            <div class="etape-dates">06 &rarr; 11 ou 14 novembre &middot; 5 + 3 nuits</div>
+            <div class="lodging-choice">
+              <div class="lodging-label">Hebergement choisi</div>
+              <div class="lodging-name"><a href="https://www.google.com/maps/place/?q=place_id:ChIJzdLfpgK3sw0R4gUV3rrBSU0" target="_blank" rel="noopener">Amadil Ocean Club</a></div>
+              <div class="lodging-desc">Connu et apprecie. Pieds dans le sable, grandes terrasses vue mer, all-inclusive, animation soir, bar de plage. 4,4/5 — 8 206 avis.</div>
+              <div class="lodging-meta"><a href="tel:+212529080116">+212 5 29 08 01 16</a> &middot; demander balcon vue mer + extension JM/Muriel</div>
+            </div>
+            <div class="activities-title">A ne pas manquer</div>
+            <ul class="activities">
+              <li class="highlight"><a href="https://www.google.com/maps/place/?q=place_id:ChIJG7yYv1G2sw0RoyDjhO6dZNg" target="_blank" rel="noopener">Souk El Had</a> — plus grand souk d'Afrique du Nord (ferme lundi)</li>
+              <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJQztGeLe2sw0RKgcqGKGG9g4" target="_blank" rel="noopener">Kasbah Oufella</a> en telepherique — vue sur la baie</li>
+              <li>Marina + corniche, restaurants en bord de mer</li>
+              <li>Detente all-inclusive + plage</li>
+              <li>Pour Muriel &amp; JM : journee Marrakech (3h) ou Taroudant (1h)</li>
+            </ul>
+          </div>
+          <div>
+            <iframe class="mini-map" src="https://maps.google.com/maps?q=Amadil+Ocean+Club+Agadir&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <iframe class="mini-map" style="margin-top: 12px;" src="https://maps.google.com/maps?q=Souk+El+Had+Agadir&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+            <a class="map-link" href="https://www.google.com/maps/search/Agadir+Morocco" target="_blank" rel="noopener">Voir Agadir sur Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <!-- BUDGET -->
+    <section class="section fade-in" id="budget">
+      <div class="section-num">— IV —</div>
+      <h2>Budget estimatif</h2>
+      <table class="budget-table">
+        <thead>
+          <tr><th>Poste</th><th>Detail</th><th>Par pers.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vols A/R</td><td>Ryanair Marseille &harr; Agadir</td><td>~150 &euro;</td></tr>
+          <tr><td>Hebergements</td><td>11 nuits (mix hotel/appart)</td><td>~450 &euro;</td></tr>
+          <tr><td>Transport</td><td>Location voiture ou minibus partage</td><td>~120 &euro;</td></tr>
+          <tr><td>Repas</td><td>~25 &euro;/jour x 11 jours</td><td>~275 &euro;</td></tr>
+          <tr><td>Activites</td><td>Surf, excursions, hammam, e-bike</td><td>~150 &euro;</td></tr>
+          <tr class="total-row"><td colspan="2">Total estime</td><td>~1 145 &euro;</td></tr>
+        </tbody>
+      </table>
+      <p class="budget-note">Estimation haute pour 11 jours. Le Maroc est tres abordable — compter 200-300 dh (~20-30 &euro;) par jour pour manger bien.</p>
+    </section>
+
+    <!-- INFOS PRATIQUES -->
+    <section class="section fade-in" id="infos">
+      <div class="section-num">— V —</div>
+      <h2>Infos pratiques</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Devise</h3>
+          <p>Dirham marocain (MAD)<br>1 &euro; &asymp; 10,8 MAD<br>Retrait DAB sur place</p>
+        </div>
+        <div class="info-card">
+          <h3>Decalage horaire</h3>
+          <p>UTC+1 (meme heure qu'en France en hiver)</p>
+        </div>
+        <div class="info-card">
+          <h3>Meteo novembre</h3>
+          <p>Agadir : 22-26&deg;C<br>Essaouira : 18-22&deg;C<br>Eau : 19-21&deg;C</p>
+        </div>
+        <div class="info-card">
+          <h3>Electricite</h3>
+          <p>Prises type C/E (comme en France)<br>Pas besoin d'adaptateur</p>
+        </div>
+        <div class="info-card">
+          <h3>Telephone</h3>
+          <p>SIM locale ~30 dh (3 &euro;) avec data<br>ou roaming EU non inclus</p>
+        </div>
+        <div class="info-card">
+          <h3>Urgences</h3>
+          <p>Police : 19<br>SAMU : 15<br>Consulat FR Agadir :<br>+212 5 28 29 91 50</p>
+        </div>
+        <div class="info-card">
+          <h3>Pourboires</h3>
+          <p>Resto : 10-15 dh<br>Guide : 50-100 dh<br>Taxi : arrondir</p>
+        </div>
+        <div class="info-card">
+          <h3>Eau</h3>
+          <p>Boire uniquement eau en bouteille. Eviter glacons et crudites lavees a l'eau du robinet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKING LIST -->
+    <section class="section fade-in" id="packing">
+      <div class="section-num">— VI —</div>
+      <h2>Quoi emporter</h2>
+      <div class="packing-grid">
+        <div class="packing-category">
+          <h3>Vetements</h3>
+          <ul>
+            <li>T-shirts legers</li>
+            <li>Short / pantalon lin</li>
+            <li>Polaire ou sweat (soirees fraiches)</li>
+            <li>Coupe-vent (Essaouira ventee)</li>
+            <li>Maillot de bain x2</li>
+            <li>Casquette / chapeau</li>
+          </ul>
+        </div>
+        <div class="packing-category">
+          <h3>Plage &amp; activites</h3>
+          <ul>
+            <li>Serviette microfibre</li>
+            <li>Creme solaire SPF50</li>
+            <li>Lunettes de soleil</li>
+            <li>Chaussures de rando legeres</li>
+            <li>Sandales</li>
+            <li>Masque &amp; tuba</li>
+          </ul>
+        </div>
+        <div class="packing-category">
+          <h3>Pratique</h3>
+          <ul>
+            <li>Passeport (valide 6 mois)</li>
+            <li>Photocopie passeport</li>
+            <li>Carte bleue (sans frais)</li>
+            <li>Cash euros (a changer)</li>
+            <li>Trousse pharmacie basique</li>
+            <li>Anti-diarrheique</li>
+          </ul>
+        </div>
+        <div class="packing-category">
+          <h3>Tech</h3>
+          <ul>
+            <li>Chargeur + batterie externe</li>
+            <li>Adaptateur (pas necessaire)</li>
+            <li>Appareil photo / GoPro</li>
+            <li>Ecouteurs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKLIST / TODO -->
+    <section class="section todo" id="checklist">
+      <div class="section-num">— VII —</div>
+      <h2>Reste a arbitrer</h2>
+      <ol class="todo-list">
+        <li><input type="checkbox"><span>Choix de l'hebergement a Taghazout — parmi les 3 options</span></li>
+        <li><input type="checkbox"><span>Choix de l'hebergement a Essaouira — parmi les 3 options</span></li>
+        <li><input type="checkbox"><span>Transport sur place — minibus, deux locations, ou grand SUV ?</span></li>
+        <li><input type="checkbox"><span>Billets d'avion — reservation Ryanair a finaliser</span></li>
+        <li><input type="checkbox"><span>Reserver Logis La Marine (Sidi Ifni) — dispo limitee</span></li>
+        <li><input type="checkbox"><span>Reserver Amadil Ocean Club (Agadir) — balcon vue mer</span></li>
+        <li><input type="checkbox"><span>Recap a diffuser au groupe</span></li>
+      </ol>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <span class="footer-ornament">&#10022;</span>
+      Bismillah, bon voyage
+      <span class="footer-ornament">&#10022;</span>
+    </footer>
+
+  </div>
+
+  <!-- JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>

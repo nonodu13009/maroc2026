@@ -445,6 +445,164 @@ h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 60px; he
 
 .todo-list li.checked { opacity: 0.5; text-decoration: line-through; }
 
+/* AUDIO PLAYER */
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--encre);
+  color: var(--sable);
+  padding: 0;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.player.collapsed { transform: translateY(calc(100% - 44px)); }
+
+.player-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  cursor: pointer;
+  background: var(--terracotta);
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sable-light);
+  gap: 8px;
+}
+
+.player-toggle .arrow { transition: transform 0.3s; display: inline-block; }
+.player.collapsed .player-toggle .arrow { transform: rotate(180deg); }
+
+.player-main {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.player-track {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--sable-light);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.player-btn {
+  background: none;
+  border: none;
+  color: var(--sable-light);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.1s;
+  line-height: 1;
+}
+
+.player-btn:hover { background: rgba(255,255,255,0.1); }
+.player-btn:active { transform: scale(0.9); }
+
+.player-btn.play-pause {
+  font-size: 28px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--terracotta);
+  border-radius: 50%;
+}
+
+.player-btn.play-pause:hover { background: var(--terracotta-deep); }
+
+.player-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.player-time {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: var(--encre-light);
+  min-width: 40px;
+  text-align: center;
+}
+
+.player-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.player-bar-fill {
+  height: 100%;
+  background: var(--terracotta);
+  border-radius: 2px;
+  width: 0%;
+  position: relative;
+}
+
+.player-bar-fill::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: -4px;
+  width: 12px;
+  height: 12px;
+  background: var(--sable-light);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.player-volume input[type="range"] {
+  width: 80px;
+  accent-color: var(--terracotta);
+}
+
+.player-volume-icon {
+  font-size: 16px;
+  color: var(--encre-light);
+}
+
+/* Add bottom padding to page so player doesn't cover footer */
+body { padding-bottom: 160px; }
+
+@media (max-width: 480px) {
+  .player-main { padding: 12px 14px 16px; gap: 10px; }
+  .player-track { font-size: 15px; }
+  .player-btn.play-pause { width: 48px; height: 48px; font-size: 24px; }
+  .player-volume { display: none; }
+  body { padding-bottom: 140px; }
+}
+
 /* FOOTER */
 .footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid var(--terracotta); text-align: center; color: var(--encre-light); font-style: italic; font-size: 15px; }
 .footer-ornament { color: var(--terracotta); margin: 0 12px; }
@@ -521,7 +679,8 @@ h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 60px; he
 /* PRINT */
 @media print {
   body { background: white; }
-  .nav, .countdown-bar { display: none; }
+  .nav, .countdown-bar, .player { display: none; }
+  body { padding-bottom: 0; }
   .page { padding: 20px; max-width: 100%; }
   .etape, .section { page-break-inside: avoid; }
   .global-map, .mini-map { display: none; }

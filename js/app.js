@@ -111,6 +111,119 @@ function initPrint() {
   }
 }
 
+// Audio Player
+function initPlayer() {
+  const tracks = [
+    { title: 'Bahia Rai Afrobeat', file: 'musique/01-bahia-rai-afrobeat.mp3' },
+    { title: 'Moroccan Travel Vlog', file: 'musique/02-moroccan-travel-vlog.mp3' },
+    { title: 'Desert Groove', file: 'musique/03-desert-groove.mp3' },
+    { title: 'Moroccan Style', file: 'musique/04-moroccan-style.mp3' },
+    { title: 'Medina Melodies', file: 'musique/05-medina-melodies.mp3' }
+  ];
+
+  let currentTrack = 0;
+  let isPlaying = false;
+  const audio = new Audio();
+
+  const player = document.getElementById('player');
+  const toggle = document.getElementById('playerToggle');
+  const trackName = document.getElementById('playerTrack');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const barFill = document.getElementById('playerBarFill');
+  const bar = document.getElementById('playerBar');
+  const currentTimeEl = document.getElementById('currentTime');
+  const totalTimeEl = document.getElementById('totalTime');
+  const volumeSlider = document.getElementById('volumeSlider');
+
+  if (!player) return;
+
+  function loadTrack(i) {
+    currentTrack = i;
+    audio.src = tracks[i].file;
+    trackName.textContent = tracks[i].title;
+    barFill.style.width = '0%';
+    currentTimeEl.textContent = '0:00';
+    totalTimeEl.textContent = '0:00';
+  }
+
+  function formatTime(s) {
+    const min = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return min + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  // Toggle panel
+  toggle.addEventListener('click', () => {
+    player.classList.toggle('collapsed');
+  });
+
+  // Play / Pause
+  playPauseBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      playPauseBtn.innerHTML = '\u25B6';
+      isPlaying = false;
+    } else {
+      audio.play();
+      playPauseBtn.innerHTML = '\u23F8';
+      isPlaying = true;
+      if (player.classList.contains('collapsed')) {
+        player.classList.remove('collapsed');
+      }
+    }
+  });
+
+  // Prev / Next
+  prevBtn.addEventListener('click', () => {
+    loadTrack((currentTrack - 1 + tracks.length) % tracks.length);
+    if (isPlaying) audio.play();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    loadTrack((currentTrack + 1) % tracks.length);
+    if (isPlaying) audio.play();
+  });
+
+  // Progress update
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      barFill.style.width = pct + '%';
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    }
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+    totalTimeEl.textContent = formatTime(audio.duration);
+  });
+
+  // Click on progress bar to seek
+  bar.addEventListener('click', (e) => {
+    const rect = bar.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    audio.currentTime = pct * audio.duration;
+  });
+
+  // Auto next track
+  audio.addEventListener('ended', () => {
+    loadTrack((currentTrack + 1) % tracks.length);
+    audio.play();
+  });
+
+  // Volume
+  audio.volume = 0.7;
+  if (volumeSlider) {
+    volumeSlider.addEventListener('input', () => {
+      audio.volume = volumeSlider.value / 100;
+    });
+  }
+
+  // Load first track
+  loadTrack(0);
+}
+
 // Init all
 document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
@@ -120,4 +233,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initSmoothScroll();
   initPrint();
+  initPlayer();
 });

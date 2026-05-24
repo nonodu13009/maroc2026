@@ -34,6 +34,136 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* DOOR SPLASH */
+.door-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  perspective: 1800px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.door-splash.opened { pointer-events: none; }
+
+.door-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.door-left,
+.door-right {
+  width: 50%;
+  height: 100%;
+  background-image: url('../images/porte.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 0 60px rgba(0,0,0,0.5);
+}
+
+.door-left {
+  background-position: left center;
+  transform-origin: left center;
+}
+
+.door-right {
+  background-position: right center;
+  transform-origin: right center;
+}
+
+.door-splash.opened .door-left {
+  transform: rotateY(-105deg);
+}
+
+.door-splash.opened .door-right {
+  transform: rotateY(105deg);
+}
+
+.door-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(42, 31, 26, 0.45);
+  transition: opacity 0.6s ease;
+}
+
+.door-splash.opened .door-overlay {
+  opacity: 0;
+}
+
+.door-text {
+  text-align: center;
+  color: #fbf6ec;
+}
+
+.door-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.door-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+  line-height: 1;
+}
+
+.door-cta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ocre);
+  animation: pulse-cta 2s ease-in-out infinite;
+}
+
+@keyframes pulse-cta {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+}
+
+.door-splash.hidden {
+  display: none;
+}
+
+/* Door handle details */
+.door-left::after,
+.door-right::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 40px;
+  background: radial-gradient(circle, #d4a84b 0%, #8a6d2f 100%);
+  border-radius: 7px;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.3);
+}
+
+.door-left::after { right: 30px; }
+.door-right::after { left: 30px; }
+
+@media (max-width: 480px) {
+  .door-title { font-size: 60px; }
+  .door-subtitle { font-size: 10px; letter-spacing: 0.3em; }
+  .door-cta { font-size: 18px; }
+  .door-left::after, .door-right::after { width: 10px; height: 30px; }
+  .door-left::after { right: 18px; }
+  .door-right::after { left: 18px; }
+}
+
 body {
   font-family: 'Cormorant Garamond', Georgia, serif;
   background: var(--paper);

@@ -224,8 +224,29 @@ function initPlayer() {
   loadTrack(0);
 }
 
+// Door splash
+function initDoor() {
+  const splash = document.getElementById('doorSplash');
+  if (!splash) return;
+
+  // Skip if already opened this session
+  if (sessionStorage.getItem('maroc2026-door-opened')) {
+    splash.classList.add('hidden');
+    return;
+  }
+
+  splash.addEventListener('click', () => {
+    splash.classList.add('opened');
+    sessionStorage.setItem('maroc2026-door-opened', 'true');
+    setTimeout(() => {
+      splash.classList.add('hidden');
+    }, 1600);
+  });
+}
+
 // Init all
 document.addEventListener('DOMContentLoaded', () => {
+  initDoor();
   updateCountdown();
   setInterval(updateCountdown, 60000);
   initDarkMode();

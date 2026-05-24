@@ -21,6 +21,13 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="css/style.css">
+<!-- Hide splash instantly if already entered (no FOUC) -->
+<script>
+if(sessionStorage.getItem('maroc2026-entered')){
+  document.documentElement.classList.add('no-splash');
+}
+</script>
+<style>.no-splash .splash{display:none!important}</style>
 </head>
 <body>
 
